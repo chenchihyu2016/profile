@@ -1,0 +1,48 @@
+{
+    "ENGINEER": [
+        {
+            "date": "2022-01 ~ 2022-05",
+            "titleLocaleKey": "FRONTEND_ENGINEER",
+            "descriptionLocaleKey": "ENGINEER_FIRST_DESCRIPTION",
+            "companyLocaleKey": "YESEE",
+            "tags": ["VUE 3", "HTML", "SASS", "JAVASCRIPT"],
+            "companyURL": "http://www.yesee.com.tw/"
+        },
+        {
+            "date": "2021-01 ~ 2021-12",
+            "titleLocaleKey": "FRONTEND_ENGINEER",
+            "descriptionLocaleKey": "ENGINEER_SECOND_DESCRIPTION",
+            "companyLocaleKey": "YESEE",
+            "tags": ["VUE 2", "JAVASCRIPT", "SASS", "TYPESCRIPT", "HTML"],
+            "companyURL": "http://www.yesee.com.tw/"
+        },
+        {
+            "date": "2020-01 ~ 2020-12",
+            "titleLocaleKey": "BACKEND_ENGINEER",
+            "descriptionLocaleKey": "ENGINEER_THIRD_DESCRIPTION",
+            "companyLocaleKey": "YESEE",
+            "tags": ["SPRINGBOOT", "JAVA", "VUE 2", "POSTGRESQL"],
+            "companyURL": "http://www.yesee.com.tw/"
+        }
+    ],
+    "TESTER": [
+        {
+            "date": "2018-07 ~ 2018-12",
+            "titleLocaleKey": "TESTER",
+            "descriptionLocaleKey": "TESTER_FIRST_DESCRIPTION",
+            "companyLocaleKey": "QLOC.SA",
+            "tags": ["ENGLISH", "TRADITIONAL_CHINESE"],
+            "companyURL": "https://q-loc.com/"
+        }
+    ],
+    "TUTOR": [
+        {
+            "date": "2016-06 ~ 2018-03",
+            "titleLocaleKey": "TUTOR",
+            "companyLocaleKey": "WORDGOD",
+            "descriptionLocaleKey": "TUTOR_FIRST_DESCRIPTION",
+            "tags": ["TOEFL_READING", "TOEFL_WRITING"],
+            "companyURL": "https://www.wordgod.com.tw/"
+        }
+    ]
+}

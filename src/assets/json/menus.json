@@ -1,0 +1,26 @@
+{
+    "menus": [
+        {
+            "title": "introduction",
+            "children": [
+                {
+                    "title": "profile",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "title": "playground",
+            "children": [
+                {
+                    "title": "api",
+                    "children": []
+                },
+                {
+                    "title": "css",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

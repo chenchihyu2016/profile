@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "PALACE_OF_CULTURE_AND_SCIENCE_TITLE",
+        "titleLocaleKey": "PALACE_OF_CULTURE_AND_SCIENCE_TITLE",
+        "descriptionLocaleKey": "PALACE_OF_CULTURE_AND_SCIENCE_DESCRIPTION",
+        "image": "PalaceOfCultureAndScience"
+    },
+    {
+        "id": 2,
+        "name": "AUSCHWITZ_TITLE",
+        "titleLocaleKey": "AUSCHWITZ_TITLE",
+        "descriptionLocaleKey": "AUSCHWITZ_DESCRIPTION",
+        "image": "Auschwitz"
+    },
+    {
+        "id": 3,
+        "name": "HYDE_PARK_TITLE",
+        "titleLocaleKey": "HYDE_PARK_TITLE",
+        "descriptionLocaleKey": "HYDE_PARK_DESCRIPTION",
+        "image": "HydePark"
+    },
+    {
+        "id": 4,
+        "name": "GREENWICH_TITLE",
+        "titleLocaleKey": "GREENWICH_TITLE",
+        "descriptionLocaleKey": "GREENWICH_DESCRIPTION",
+        "image": "Greenwich"
+    },
+    {
+        "id": 5,
+        "name": "NOTRE_DAME_TITLE",
+        "titleLocaleKey": "NOTRE_DAME_TITLE",
+        "descriptionLocaleKey": "NOTRE_DAME_DESCRIPTION",
+        "image": "NotreDame"
+    },
+    {
+        "id": 6,
+        "name": "MANNEKEN_PIS_TITLE",
+        "titleLocaleKey": "MANNEKEN_PIS_TITLE",
+        "descriptionLocaleKey": "MANNEKEN_PIS_DESCRIPTION",
+        "image": "MannekenPis"
+    },
+    {
+        "id": 7,
+        "name": "COLOSSEUM_SELFIE_TITLE",
+        "titleLocaleKey": "COLOSSEUM_SELFIE_TITLE",
+        "descriptionLocaleKey": "COLOSSEUM_SELFIE_DESCRIPTION",
+        "image": "ColosseumSelfie"
+    },
+    {
+        "id": 8,
+        "name": "COLOSSEUM_TITLE",
+        "titleLocaleKey": "COLOSSEUM_TITLE",
+        "descriptionLocaleKey": "COLOSSEUM_DESCRIPTION",
+        "image": "Colosseum"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "localeKey": "ABOUT_ME",
+        "value": "intro"
+    },
+    {
+        "localeKey": "WORK_EXPERIENCE",
+        "value": "experience"
+    },
+    {
+        "localeKey": "EXTERNAL_LINK",
+        "value": "externalLink"
+    },
+    {
+        "localeKey": "CONTACT_ME",
+        "value": "contact"
+    },
+    {
+        "localeKey": "OTHERS",
+        "value": "others"
+    }
+]

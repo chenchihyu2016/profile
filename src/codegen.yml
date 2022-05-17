@@ -1,0 +1,5 @@
+schema: https://even-cat-movie-graphql.herokuapp.com/graphql
+generates:
+  ./src/types/graphql/types.d.ts:
+    plugins:
+      - typescript

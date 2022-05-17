@@ -1,0 +1,45 @@
+.fade-enter-active,
+.fade-leave-active,
+.component-enter-active,
+.component-leave-active {
+    transition: all 600ms ease;
+}
+
+.header-enter-active,
+.header-leave-active {
+    transition: all 300ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
+
+.component-enter-from,
+.component-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.component-enter-to,
+.component-leave-from {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.header-enter-to,
+.header-leave-from {
+    opacity: 1;
+    top: 0;
+}
+
+.header-enter-from,
+.header-leave-to {
+    opacity: 0;
+    top: -60px;
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "href": "tel:0988403958",
+        "icon": "mobile"
+    },
+    {
+        "id": 2,
+        "href": "mailto:chenchihyu2014@gmail.com",
+        "icon": "paper-plane"
+    },
+    {
+        "id": 3,
+        "href": "https://www.linkedin.com/in/chih-yu-chen-095029191/",
+        "icon": "linkedin"
+    },
+    {
+        "id": 4,
+        "href": "https://github.com/chenchihyu2016/profile",
+        "icon": "github"
+    }
+]

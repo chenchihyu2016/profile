@@ -1,0 +1,98 @@
+$color-primary-bright: #bbdfc8;
+$color-orange: #ffa500;
+$color-red: #fa0f0f;
+$color-yellow: #fff8df;
+$color-blue: #1877f2;
+$color-blue-bright: #77a7ff;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-off-white: #efefef;
+$color-preset: #363c40;
+$color-transparent: transparent;
+$primary-text: #65676b;
+$placeholder-text: #8a8d91;
+$button-rest: #a5adc1;
+$border-line: #d1e4e0;
+$color-disabled: #cccccc;
+$color-gray: #d3d3d3;
+$color-purple: #52057b;
+$color-purple-light: #892cdc;
+$color-background: #0a192f;
+$color-text-bright: #ffffff;
+$color-text: #cccccc;
+$color-primary: #00ffff;
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: wrap;
+}
+
+@mixin inline-flex($align, $justify) {
+    display: inline-flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: wrap;
+}
+
+@mixin top_line() {
+    border-top: 1.3px solid rgba($color: $color-black, $alpha: 0.2);
+}
+
+@mixin bottom_line() {
+    border-bottom: 1.3px solid rgba($color: $color-black, $alpha: 0.2);
+}
+
+@mixin border_radius {
+    border-radius: 5px;
+}
+
+@mixin block_margin_bottom {
+    margin-bottom: 20%;
+
+    @media (orientation: portrait) {
+        margin-bottom: 40%;
+    }
+}
+
+@mixin underline_animation {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background: $color-primary;
+        height: 1px;
+        transition: 300ms ease all;
+    }
+
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+@keyframes flickering {
+    0% {
+        opacity: 25%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 25%;
+    }
+}
