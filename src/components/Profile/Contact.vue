@@ -1,14 +1,9 @@
 <template>
-    <div class="contact_container" ref="contactContainerRef">
+    <section class="contact_container" ref="contactContainerRef">
         <h2 class="header_title">{{ $t('CONTACT_ME') }}</h2>
         <div class="contact" v-for="contact in contacts" :key="contact.id">
             <font-awesome-icon
-                :icon="[
-                    ['linkedin', 'github'].includes(contact.icon)
-                        ? 'fab'
-                        : 'fas',
-                    contact.icon
-                ]"
+                :icon="[contact.prefix, contact.icon]"
                 :class="['icon', contact.icon]"
             />
             <a
@@ -20,7 +15,7 @@
                 {{ contact.href }}
             </a>
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -73,7 +68,7 @@ export default defineComponent({
         height: 100%;
         transition: 300ms ease opacity, 1200ms ease transform;
         max-width: 50%;
-        box-sizing: border-box;
+
         opacity: 0.8;
         transform: scale(0.6);
 

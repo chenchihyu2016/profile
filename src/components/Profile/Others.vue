@@ -1,22 +1,23 @@
 <template>
-    <div ref="othersContainerRef" class="others_container">
+    <section ref="othersContainerRef" class="others_container" id="others">
         <h2 class="header_title">
             {{ $t('OTHER_EXPERIENCE') }}
-            <span
+            <button
                 :class="['button', currentTab === tab ? 'is_active' : '']"
                 v-for="tab in tabs"
                 @click="changTab(tab)"
                 @touchstart="toggleHoverEffect"
                 @touchend="toggleHoverEffect"
-                >{{ $t(tab) }}</span
             >
+                {{ $t(tab) }}
+            </button>
         </h2>
         <transition name="fade" mode="out-in">
-            <h4
+            <h3
                 class="others_description"
                 :key="currentDescription"
                 v-html="$t(currentDescription)"
-            ></h4>
+            ></h3>
         </transition>
         <transition name="fade" mode="out-in">
             <KeepAlive
@@ -35,13 +36,12 @@
                 <Reading v-else
             /></KeepAlive>
         </transition>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
 import { defineAsyncComponent, defineComponent, onMounted, ref } from 'vue';
 import { useStore } from '@/store';
-import { useGetIndividualScrollTop } from '@/composables/scroll';
 import cardInformation from '@/assets/json/cardInformation.json';
 import Swiper from '@/components/common/Swiper.vue';
 import Card from '@/components/common/Card.vue';
@@ -58,17 +58,8 @@ export default defineComponent({
         const cardInfos = ref(cardInformation);
         const cardInfoNames = ref(cardInformation.map(({ name }) => name));
         const currentDescription = ref('TRAVEL_DESCRIPTION');
-        const { dispatch } = useStore();
         const currentTab = ref('TRAVEL');
         const tabs = ref(['TRAVEL', 'HOBBY']);
-
-        onMounted(() => {
-            const scrollTop = useGetIndividualScrollTop(
-                othersContainerRef.value
-            );
-
-            dispatch('setScrollTopList', { key: 'others', value: scrollTop });
-        });
 
         function changTab(tab: string) {
             if (currentTab.value !== tab) {
@@ -119,7 +110,7 @@ export default defineComponent({
             padding: 0.25rem 2rem;
             cursor: pointer;
             transition: 300ms all ease;
-            box-sizing: border-box;
+
             display: inline-block;
 
             @media (orientation: portrait) {

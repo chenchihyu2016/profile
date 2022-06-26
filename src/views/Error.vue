@@ -1,7 +1,7 @@
 <template>
-    <div class="error_page_container">
+    <main class="error_page_container">
         {{ $t('PAGE_NOT_FOUND') }}
-    </div>
+    </main>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,7 @@ export default defineComponent({
     text-align: justify;
     padding: 0 20%;
     color: $color-primary;
-    font-size: 4rem;
+    font-size: 3rem;
 
     @media (orientation: portrait) {
         font-size: 2rem;

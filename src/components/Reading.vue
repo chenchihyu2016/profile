@@ -15,7 +15,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .image_perspective {
-    @include border_radius();
     position: absolute;
     transform: translateZ(-5px) scale(1.5);
     height: 200px;

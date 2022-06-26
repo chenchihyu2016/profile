@@ -1,42 +1,34 @@
 <template>
-    <div class="external_links_container" ref="externalLinkRef">
+    <section
+        class="external_links_container"
+        ref="externalLinkRef"
+        id="externalLink"
+    >
         <h2 class="header_title">{{ $t('EXTERNAL_LINK') }}</h2>
-        <div
+        <article
             class="external_link"
             v-for="link in links"
             :key="link.id"
             @click="openHandle(link.href)"
         >
             <h2 class="name">{{ $t(link.nameLocaleKey) }}</h2>
-            <span class="description">{{ $t(link.descriptionLocaleKey) }}</span>
-        </div>
-    </div>
+            <p class="description">{{ $t(link.descriptionLocaleKey) }}</p>
+        </article>
+    </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref } from 'vue';
 import externalLinks from '@/assets/json/externalLinks.json';
-import { useGetIndividualScrollTop } from '@/composables/scroll';
-import { useStore } from '@/store';
 
 export default defineComponent({
     setup() {
         const externalLinkRef = ref();
         const links = ref(externalLinks);
-        const { dispatch } = useStore();
 
         function openHandle(url: string) {
             window.open(url, 'target = _blank');
         }
-
-        onMounted(() => {
-            const scrollTop = useGetIndividualScrollTop(externalLinkRef.value);
-
-            dispatch('setScrollTopList', {
-                key: 'externalLink',
-                value: scrollTop
-            });
-        });
 
         return { externalLinkRef, links, openHandle };
     }
@@ -54,7 +46,7 @@ export default defineComponent({
         align-content: flex-start;
         color: $color-text-bright;
         border: 1px solid $color-primary;
-        box-sizing: border-box;
+
         cursor: pointer;
         flex-basis: 49%;
         transition: 300ms all ease;

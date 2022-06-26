@@ -126,7 +126,6 @@ export default defineComponent({
         transform: translate(-50%, -50%);
 
         &:first-child {
-            @include border_radius();
         }
 
         &:nth-child(2) {

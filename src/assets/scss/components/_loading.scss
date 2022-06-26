@@ -11,11 +11,9 @@
 
     .animation_item {
         @include flex(center, center);
-        @include border_radius();
-        // border: 1px solid $color-primary;
         flex-basis: 20%;
         height: 200px;
-        box-sizing: border-box;
+
         position: relative;
 
         @media (orientation: portrait) {
@@ -23,7 +21,6 @@
         }
 
         &::before {
-            @include border_radius();
             content: '';
             position: absolute;
             width: 100%;

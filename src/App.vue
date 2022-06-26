@@ -49,7 +49,6 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 @import '@/assets/scss/vendors/normalize';
 @import '@/assets/scss/global/transition';
-@import '@/assets/scss/global/htmlTags';
 
 .component {
     @include flex(center, center);

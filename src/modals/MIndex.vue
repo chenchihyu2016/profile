@@ -70,10 +70,10 @@ export default defineComponent({
     bottom: 0;
     background: rgba($color-black, 0.4);
     z-index: 1;
+    overflow: auto;
 
     .component {
         @include flex(center, center);
-        @include border_radius();
         max-width: 80%;
         position: absolute;
         padding: 8px;

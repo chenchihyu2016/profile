@@ -42,8 +42,12 @@
             <div class="data_item">
                 <div class="data_name">{{ $t('ADDRESS') }}</div>
                 <div class="data_value">
-                    {{ data.address.city }}, {{ data.address.street }},
-                    {{ data.address.suite }}, {{ data.address.zipcode }}
+                    {{
+                        `${data.address.city},
+                        ${data.address.street},
+                        ${data.address.suite},
+                        ${data.address.zipcode}`
+                    }}
                 </div>
             </div>
             <div class="data_item">
@@ -117,7 +121,7 @@ export default defineComponent({
 
     .image_container {
         @include inline-flex(center, center);
-        @include border_radius();
+
         flex-basis: 50%;
         height: 40%;
         border: 1px solid $color-text;
@@ -164,9 +168,12 @@ export default defineComponent({
 
     .button_container {
         @include flex(center, center);
-        border-top: 1px solid $color-gray;
         width: 100%;
         height: 10%;
+
+        button {
+            padding: 0.5rem 1rem;
+        }
     }
 }
 

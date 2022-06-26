@@ -1,21 +1,21 @@
 <template>
     <transition name="header" mode="out-in">
         <header v-if="isNavShow">
-            <div class="close_icon" @click="toggleSidebar">
+            <button class="close_icon" @click="toggleSidebar">
                 <font-awesome-icon
                     :icon="['fas', isSidebarShow ? 'xmark' : 'bars']"
                 />
-            </div>
+            </button>
             <div class="options_container">
                 <template v-for="tab in tabs">
-                    <div
+                    <a
                         class="tab"
-                        @click="tabClickHandle(tab.value)"
+                        :href="`#${tab.value}`"
                         :key="tab.value"
                         v-if="!isMobile && isProfile"
                     >
                         {{ $t(tab.localeKey) }}
-                    </div>
+                    </a>
                 </template>
                 <font-awesome-icon
                     :icon="['fas', 'globe']"
@@ -28,9 +28,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch, ref } from 'vue';
+import { defineComponent, computed, ref } from 'vue';
 import headerTabs from '@/assets/json/headerTabs.json';
-import { useScroll } from '@/composables/scroll';
 import { useStore } from '@/store';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -41,24 +40,13 @@ export default defineComponent({
         const isSidebarShow = computed(() => state.isSidebarShow);
         const isMobile = computed(() => state.isMobile);
         const isNavShow = computed(() => state.isNavShow);
-        const scrollTopList = computed(() => state.scrollTopList);
         const route = useRoute();
         const isProfile = computed(() => route.name === 'profile');
         const { locale } = useI18n();
-        const { setScrollTopValue, isScrollDown } = useScroll();
         const tabs = ref(headerTabs);
 
         function toggleSidebar() {
             dispatch('setIsSidebarShow', !isSidebarShow.value);
-        }
-
-        function tabClickHandle(text: string) {
-            const target = scrollTopList.value.find(
-                (scrollTopElement) => scrollTopElement.key === text
-            );
-            const scrollTopValue = target?.value ?? 0;
-
-            setScrollTopValue(scrollTopValue);
         }
 
         function localeHandle() {
@@ -68,10 +56,6 @@ export default defineComponent({
             localStorage.setItem('locale', newLocale);
         }
 
-        watch(isScrollDown, () => {
-            dispatch('setIsNavShow', !isScrollDown.value);
-        });
-
         return {
             isSidebarShow,
             isNavShow,
@@ -80,7 +64,6 @@ export default defineComponent({
             isProfile,
             locale,
             toggleSidebar,
-            tabClickHandle,
             localeHandle
         };
     }
@@ -102,11 +85,10 @@ header {
 
     .close_icon {
         @include flex(center, center);
-        @include border_radius();
+
         transition: 0.3s all ease;
         width: 32px;
         height: 32px;
-        box-sizing: border-box;
         color: $color-primary;
         border: 1px solid $color-primary;
         cursor: pointer;
@@ -124,11 +106,9 @@ header {
         height: 100%;
 
         .locale {
-            @include border_radius();
-            width: 32px;
-            height: 32px;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
-            box-sizing: border-box;
             border: 1px solid $color-white;
             padding: 6px;
 
@@ -138,7 +118,6 @@ header {
 
             @media (hover: hover) {
                 &:hover {
-                    // background: $color-primary;
                     color: $color-primary;
                     border: 1px solid $color-primary;
                 }
@@ -149,6 +128,7 @@ header {
             @include flex(center, center);
             @include underline_animation();
             height: 50%;
+            color: $color-white;
 
             &:not(:last-child) {
                 margin: 0 8px;

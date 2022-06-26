@@ -1,7 +1,7 @@
 <template>
-    <div class="sub_menu" v-if="item">
-        <div class="title_bar" @click.prevent="isOpen = !isOpen">
-            <div
+    <li class="sub_menu" v-if="item">
+        <button class="title_bar" @click.prevent="isOpen = !isOpen">
+            <p
                 :class="[
                     'title',
                     isRouterLink(item.title) ? 'router_link' : ''
@@ -9,8 +9,8 @@
                 @click="routeHandle(item)"
             >
                 {{ $t(item.title.toUpperCase()) }}
-            </div>
-        </div>
+            </p>
+        </button>
         <template v-if="item.children">
             <transition-group name="fade" mode="out-in">
                 <Menu
@@ -21,7 +21,7 @@
                 />
             </transition-group>
         </template>
-    </div>
+    </li>
 </template>
 
 <script lang="ts">
@@ -73,15 +73,16 @@ export default defineComponent({
 
     .title_bar {
         @include flex(center, space-between);
-        @include border_radius();
+
         text-align: justify;
         line-height: 2rem;
+        width: 100%;
         margin-bottom: 4px;
         .title {
-            @include border_radius();
             width: 90%;
-            padding-left: 8px;
+            padding: 0.25rem 0 0.25rem 0.5rem;
             cursor: pointer;
+            color: $color-white;
 
             @media (hover: hover) {
                 &:hover {

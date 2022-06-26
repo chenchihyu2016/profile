@@ -1,9 +1,9 @@
 <template>
-    <div class="image_container">
+    <figure class="image_container">
         <img class="image background" :src="useGetImageUrl('mountain')" />
         <img class="image foreground" :src="useGetImageUrl('trees')" />
-        <span class="description">TEXT</span>
-    </div>
+        <figcaption class="description">TEXT</figcaption>
+    </figure>
 </template>
 
 <script lang="ts">
@@ -20,7 +20,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .image_container {
     @include flex(center, center);
-    @include border_radius();
+
     width: 100%;
     height: 80%;
     transform-style: preserve-3d;
@@ -32,7 +32,6 @@ export default defineComponent({
     }
 
     .image {
-        @include border_radius();
         object-fit: cover;
         position: absolute;
         width: 99%;

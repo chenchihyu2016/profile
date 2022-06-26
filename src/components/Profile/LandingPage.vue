@@ -1,11 +1,8 @@
 <template>
-    <div class="landing_page_container">
-        <span class="greeting">{{ $t('LANDING_PAGE_GREETING') }}</span>
-        <span
-            class="description"
-            v-html="$t('LANDING_PAGE_DESCRIPTION')"
-        ></span>
-    </div>
+    <section class="landing_page_container">
+        <h1 class="greeting">{{ $t('LANDING_PAGE_GREETING') }}</h1>
+        <p class="description" v-html="$t('LANDING_PAGE_DESCRIPTION')" />
+    </section>
 </template>
 
 <script lang="ts">

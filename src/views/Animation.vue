@@ -1,7 +1,7 @@
 <template>
-    <div class="animation_container">
+    <main class="animation_container">
         <Loading />
-    </div>
+    </main>
 </template>
 
 <script lang="ts">
@@ -9,10 +9,10 @@ import { defineComponent } from 'vue';
 import Loading from '@/components/Animation/Loading.vue';
 
 export default defineComponent({
+    components: { Loading },
     setup() {
         return {};
-    },
-    components: { Loading }
+    }
 });
 </script>
 

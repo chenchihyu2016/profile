@@ -30,7 +30,7 @@ export default defineComponent({
     bottom: 0;
     left: 0;
     flex: 1;
-    box-sizing: border-box;
+
     transition: 300ms all ease;
     overflow: hidden;
 }

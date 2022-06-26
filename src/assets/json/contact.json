@@ -2,21 +2,45 @@
     {
         "id": 1,
         "href": "tel:0988403958",
-        "icon": "mobile"
+        "prefix": "fas",
+        "icon": "mobile",
+        "text": "MOBILE",
+        "style": {
+            "--color": "#25d366",
+            "--index": 4
+        }
     },
     {
         "id": 2,
         "href": "mailto:chenchihyu2014@gmail.com",
-        "icon": "paper-plane"
+        "prefix": "fas",
+        "icon": "paper-plane",
+        "text": "EMAIL",
+        "style": {
+            "--color": "#ff0000",
+            "--index": 3
+        }
     },
     {
         "id": 3,
         "href": "https://www.linkedin.com/in/chih-yu-chen-095029191/",
-        "icon": "linkedin"
+        "prefix": "fab",
+        "icon": "linkedin",
+        "text": "LINKEDIN",
+        "style": {
+            "--color": "#1da1f2",
+            "--index": 2
+        }
     },
     {
         "id": 4,
         "href": "https://github.com/chenchihyu2016/profile",
-        "icon": "github"
+        "prefix": "fab",
+        "icon": "github",
+        "text": "GITHUB",
+        "style": {
+            "--color": "#000000",
+            "--index": 1
+        }
     }
 ]

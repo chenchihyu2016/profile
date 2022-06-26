@@ -1,5 +1,5 @@
 <template>
-    <div class="intro_container" ref="introContainerRef">
+    <div class="intro_container" ref="introContainerRef" id="intro">
         <div class="avatar_container">
             <div class="image_container">
                 <a
@@ -11,35 +11,21 @@
                 </a>
             </div>
         </div>
-        <div class="description_container" :data-language="locale">
+        <p class="description_container" :data-language="locale">
             {{ $t('ABOUT_ME_DESCRIPTION') }}
-        </div>
+        </p>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
-import { useStore } from '@/store';
-import { useGetIndividualScrollTop } from '@/composables/scroll';
+import { defineComponent, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useGetImageUrl } from '@/composables/image';
 
 export default defineComponent({
     setup() {
         const introContainerRef = ref();
-        const { dispatch } = useStore();
         const { locale } = useI18n();
-
-        onMounted(() => {
-            const scrollTop = useGetIndividualScrollTop(
-                introContainerRef.value
-            );
-
-            dispatch('setScrollTopList', {
-                key: 'intro',
-                value: scrollTop
-            });
-        });
 
         return { introContainerRef, locale, useGetImageUrl };
     }
@@ -107,7 +93,7 @@ export default defineComponent({
 
     .description_container {
         @include flex(center, flex-start);
-        @include border_radius();
+
         align-content: center;
         height: 40%;
         width: 80%;

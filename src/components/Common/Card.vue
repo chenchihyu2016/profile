@@ -1,5 +1,5 @@
 <template>
-    <div
+    <figure
         class="card_container"
         @touchstart.passive="enterHandle"
         @mouseenter="enterHandle"
@@ -12,15 +12,15 @@
         }"
     >
         <img class="image" :src="useGetImageUrl(cardInfo.image)" />
-        <div class="text">
-            <div class="title">
+        <figcaption class="text">
+            <p class="title">
                 {{ $t(cardInfo.titleLocaleKey.toUpperCase()) }}
-            </div>
-            <span class="description">{{
-                $t(cardInfo.descriptionLocaleKey.toUpperCase())
-            }}</span>
-        </div>
-    </div>
+            </p>
+            <p class="description">
+                {{ $t(cardInfo.descriptionLocaleKey.toUpperCase()) }}
+            </p>
+        </figcaption>
+    </figure>
 </template>
 
 <script lang="ts">
@@ -117,7 +117,6 @@ export default defineComponent({
     }
 
     .image {
-        @include border_radius();
         max-height: 100%;
         max-width: 100%;
         opacity: 0.8;
@@ -145,7 +144,6 @@ export default defineComponent({
         }
 
         .description {
-            @include border_radius();
             background: rgba($color-gray, 0.2);
             color: $color-white;
             padding: 0 0.25rem;

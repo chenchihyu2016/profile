@@ -27,5 +27,8 @@
         "src/assets/api/index.ts",
         "src/apollo/index.ts"
     ],
-    "allowjs": true
+    "allowjs": true,
+    "vueCompilerOptions": {
+        "experimentalSuppressInvalidJsxElementTypeErrors": true
+    }
 }

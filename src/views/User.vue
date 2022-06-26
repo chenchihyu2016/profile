@@ -1,5 +1,5 @@
 <template>
-    <div class="element_container" ref="elementContainerRef">
+    <main class="element_container" ref="elementContainerRef">
         <template v-if="!loading">
             <input
                 type="file"
@@ -8,7 +8,7 @@
                 @change="imageChange"
             />
             <div class="element" v-for="user in users" :key="user.id">
-                <div class="image_container">
+                <figure class="image_container">
                     <transition name="fade" mode="out-in">
                         <img
                             v-if="user.image"
@@ -17,15 +17,15 @@
                             class="image"
                             @click="clickImageRef(user.id)"
                         />
-                        <div
+                        <figcaption
                             class="image"
                             @click="clickImageRef(user.id)"
                             v-else
                         >
                             {{ $t('CLICK_TO_UPDATE_PHOTO') }}
-                        </div>
+                        </figcaption>
                     </transition>
-                </div>
+                </figure>
                 <div class="data_container">
                     <div
                         class="data_item"
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </template>
-    </div>
+    </main>
 </template>
 
 <script lang="ts">
@@ -141,7 +141,6 @@ export default defineComponent({
     }
     .element {
         @include flex(flex-start, center);
-        @include border_radius();
         border: 1px solid $color-white;
         height: 200px;
         margin-bottom: 10px;
@@ -157,26 +156,26 @@ export default defineComponent({
         }
 
         .data_container {
-            @include flex(flex-start, flex-start);
-            @include border_radius();
-            align-content: flex-start;
+            @include flex(center, space-between);
+            align-content: space-between;
             height: 100%;
             flex: 4;
             position: relative;
-            overflow: hidden;
+            margin-left: 0.5rem;
 
             @media (orientation: portrait) {
                 flex: 1;
+                overflow: hidden;
             }
 
             .data_item {
                 @include flex(center, center);
                 flex-basis: calc(33% - 16px);
                 height: calc(32.5% - 16px);
-                padding: 8px;
 
                 @media (orientation: portrait) {
                     flex-basis: 100%;
+                    height: 25%;
                 }
 
                 .data_name,
@@ -216,8 +215,6 @@ export default defineComponent({
 
                 .data_name,
                 .data_value {
-                    font-size: 0.75rem;
-                    box-sizing: border-box;
                     padding: 0 4px;
 
                     @media (orientation: portrait) {
@@ -232,11 +229,9 @@ export default defineComponent({
 
         .image_container {
             @include flex(center, center);
-            @include border_radius();
             height: 100%;
             width: 100%;
             flex: 1;
-            box-sizing: border-box;
             border: 1px solid $color-gray;
             overflow: hidden;
             max-width: 20%;
@@ -247,7 +242,6 @@ export default defineComponent({
 
             .image,
             .image_skeleton {
-                @include border_radius();
                 cursor: pointer;
             }
 
@@ -265,7 +259,6 @@ export default defineComponent({
             .image_skeleton {
                 background: $color-gray;
                 position: relative;
-                // width: 90%;
                 width: 100%;
                 height: 100%;
 

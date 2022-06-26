@@ -1,6 +1,6 @@
 <template>
-    <div class="footer_container">
-        <div class="description">
+    <footer class="footer_container">
+        <p class="description">
             {{ $t('FOOTER_MESSAGE') }}
             <a
                 href="https://brittanychiang.com/"
@@ -10,7 +10,7 @@
             >
                 https://brittanychiang.com/
             </a>
-        </div>
+        </p>
         <svg
             class="waves"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@
                 <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
             </g>
         </svg>
-    </div>
+    </footer>
 </template>
 
 <script lang="ts">
@@ -78,7 +78,7 @@ export default defineComponent({
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 600;
         color: $color-background;
         padding: 0 16px;

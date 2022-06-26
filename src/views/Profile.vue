@@ -1,5 +1,5 @@
 <template>
-    <div
+    <main
         class="portfolio_container"
         ref="portfolioContainerRef"
         @touchstart.passive="touchstartHandle"
@@ -13,11 +13,11 @@
         <Others />
         <Footer />
         <!-- <ParallaxImage /> -->
-    </div>
+    </main>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref, watch } from 'vue';
+import { defineComponent, onMounted, ref, watch } from 'vue';
 import Footer from '@/components/Footer.vue';
 import Intro from '@/components/Profile/Intro.vue';
 import Contact from '@/components/Profile/Contact.vue';
@@ -42,22 +42,11 @@ export default defineComponent({
         Others
     },
     setup() {
-        const { dispatch, state } = useStore();
+        const { dispatch } = useStore();
         const portfolioContainerRef = ref();
-        const isMobile = computed(() => state.isMobile);
         const { isSwipeDown, isSwipeUp, setTouchstartEvent, setTouchendEvent } =
             useTouch();
-        const { scrollTopValue, setScrollTarget, setScrollTopValue } =
-            useScroll();
-
-        watch(scrollTopValue, () => {
-            if (!isMobile.value) {
-                portfolioContainerRef.value.scroll({
-                    top: scrollTopValue.value,
-                    behavior: 'smooth'
-                });
-            }
-        });
+        const { scrollTopValue, setScrollTarget } = useScroll();
 
         function touchstartHandle(event: TouchEvent) {
             setTouchstartEvent(event);
@@ -75,6 +64,14 @@ export default defineComponent({
             setTouchendEvent(null);
         }
 
+        watch(scrollTopValue, (newValue, oldValue) => {
+            if (Math.abs(newValue - oldValue) > 5) {
+                newValue > oldValue
+                    ? dispatch('setIsNavShow', false)
+                    : dispatch('setIsNavShow', true);
+            }
+        });
+
         onMounted(() => {
             const savedScrollTopValue = Number(
                 sessionStorage.getItem('PROFILE_SCROLLTOP')
@@ -83,9 +80,10 @@ export default defineComponent({
             setScrollTarget(portfolioContainerRef.value);
 
             if (savedScrollTopValue) {
-                setScrollTopValue(savedScrollTopValue);
-
-                scrollTopValue.value = savedScrollTopValue;
+                portfolioContainerRef.value.scroll({
+                    top: scrollTopValue.value,
+                    behavior: 'smooth'
+                });
             }
         });
 
@@ -115,6 +113,7 @@ export default defineComponent({
     overflow-x: hidden;
     height: calc(100vh - 60px);
     position: relative;
+    scroll-behavior: smooth;
 
     @media (orientation: portrait) {
         padding: 60px 5% 0 5%;

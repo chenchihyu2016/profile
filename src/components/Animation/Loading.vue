@@ -1,6 +1,6 @@
 <template>
-    <div class="loading_container">
-        <div class="animation_header">Loaders</div>
+    <section class="loading_container">
+        <h2 class="animation_header">Loaders</h2>
         <div class="animation_items">
             <div
                 class="animation_item"
@@ -10,7 +10,7 @@
                 <div :class="loaderClass" />
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

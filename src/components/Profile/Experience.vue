@@ -1,15 +1,19 @@
 <template>
-    <div class="expericence_container" ref="experienceContainerRef">
+    <section
+        class="experience_container"
+        ref="experienceContainerRef"
+        id="experience"
+    >
         <h2 class="header_title">{{ $t('WORK_EXPERIENCE') }}</h2>
         <div class="tabs_container">
-            <div
+            <button
                 :class="['tab', currentTab === tab ? 'current_tab' : '']"
                 v-for="(tab, index) in tabs"
                 :key="index"
                 @click="tabClickHandle(tab)"
             >
                 {{ $t(tab) }}
-            </div>
+            </button>
         </div>
         <transition name="fade" mode="out-in">
             <keep-alive>
@@ -19,46 +23,45 @@
                         v-for="(content, index) in currentContent"
                         :key="index"
                     >
-                        <span
+                        <time
                             class="content_date"
                             v-html="dateHandle(content.date)"
-                        ></span>
+                        />
                         <div class="content_info">
-                            <span class="content_detail"
+                            <p class="content_detail"
                                 >{{ $t(content.titleLocaleKey) }}
-                                <span
+                                <button
                                     class="highlight_company"
                                     @click="companyClick(content.companyURL)"
                                 >
                                     @{{ $t(content.companyLocaleKey) }}
-                                </span>
-                            </span>
-                            <span class="content_detail">{{
+                                </button>
+                            </p>
+                            <p class="content_detail">{{
                                 $t(content.descriptionLocaleKey)
-                            }}</span>
-                            <span class="content_detail">
-                                <span
+                            }}</p>
+                            <p class="content_detail">
+                                <div
                                     v-for="(
                                         tagLocaleKey, indice
                                     ) in content.tags"
                                     :key="indice"
                                     class="content_tags"
-                                    >{{ $t(tagLocaleKey) }}</span
+                                    >{{ $t(tagLocaleKey) }}</div
                                 >
-                            </span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </keep-alive>
         </transition>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, onMounted } from 'vue';
 import { useStore } from '@/store';
 import contentJSON from '@/assets/json/content.json';
-import { useGetIndividualScrollTop } from '@/composables/scroll';
 
 export default defineComponent({
     setup() {
@@ -84,17 +87,6 @@ export default defineComponent({
             window.open(companyURL, 'target = _blank');
         }
 
-        onMounted(() => {
-            const scrollTop = useGetIndividualScrollTop(
-                experienceContainerRef.value
-            );
-
-            dispatch('setScrollTopList', {
-                key: 'experience',
-                value: scrollTop
-            });
-        });
-
         return {
             experienceContainerRef,
             tabs,
@@ -110,7 +102,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.expericence_container {
+.experience_container {
     @include flex(center, center);
     @include block_margin_bottom();
     flex-direction: column;
@@ -127,6 +119,7 @@ export default defineComponent({
             @include underline_animation();
             height: 32px;
             margin: 16px 16px 16px 0;
+            color: $color-white;
 
             @media (orientation: portrait) {
                 margin: 8px 8px 8px 0;
@@ -189,7 +182,7 @@ export default defineComponent({
                     }
 
                     .content_tags {
-                        @include border_radius();
+                        
                         margin-right: 8px;
                         background: $color-gray;
                         padding: 0px 8px;

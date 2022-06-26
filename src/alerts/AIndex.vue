@@ -98,7 +98,7 @@ export default defineComponent({
 
     .alert {
         @include flex(flex-start, center);
-        @include border_radius();
+
         margin-bottom: 12px;
         padding: 12px;
         width: 100%;

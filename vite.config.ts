@@ -6,6 +6,7 @@ const timestamp = new Date().getTime();
 
 export default defineConfig({
     plugins: [vue()],
+    base: './',
     server: {
         host: true
     },
