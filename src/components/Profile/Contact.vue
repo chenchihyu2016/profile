@@ -1,5 +1,5 @@
 <template>
-    <section class="contact_container" ref="contactContainerRef">
+    <section class="contact_container" ref="contactContainerRef" id="contact">
         <h2 class="header_title">{{ $t('CONTACT_ME') }}</h2>
         <div class="contact" v-for="contact in contacts" :key="contact.id">
             <font-awesome-icon
@@ -20,25 +20,16 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
-import { useStore } from '@/store';
 import { useIntersection } from '@/composables/intersection';
-import { useGetIndividualScrollTop } from '@/composables/scroll';
 import contactInfo from '@/assets/json/contact.json';
 
 export default defineComponent({
     setup() {
         const contactContainerRef = ref();
-        const { dispatch } = useStore();
         const contacts = ref(contactInfo);
 
         onMounted(() => {
-            const scrollTop = useGetIndividualScrollTop(
-                contactContainerRef.value
-            );
-
             useIntersection(contactContainerRef.value, '.contact', 'float');
-
-            dispatch('setScrollTopList', { key: 'contact', value: scrollTop });
         });
 
         return { contactContainerRef, contacts };

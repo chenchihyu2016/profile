@@ -1,9 +1,5 @@
 <template>
-    <section
-        class="external_links_container"
-        ref="externalLinkRef"
-        id="externalLink"
-    >
+    <section class="external_links_container" id="externalLink">
         <h2 class="header_title">{{ $t('EXTERNAL_LINK') }}</h2>
         <article
             class="external_link"
@@ -23,14 +19,13 @@ import externalLinks from '@/assets/json/externalLinks.json';
 
 export default defineComponent({
     setup() {
-        const externalLinkRef = ref();
         const links = ref(externalLinks);
 
         function openHandle(url: string) {
             window.open(url, 'target = _blank');
         }
 
-        return { externalLinkRef, links, openHandle };
+        return { links, openHandle };
     }
 });
 </script>

@@ -12,10 +12,10 @@
                     v-if="data.image"
                     :src="data.image"
                     :key="data.id"
-                    class="image"
+                    :alt="data.image"
                     @click="clickImageRef(data.id)"
                 />
-                <div v-else class="image" @click.self="clickImageRef(data.id)">
+                <div v-else @click.self="clickImageRef(data.id)">
                     {{ $t('CLICK_TO_UPDATE_PHOTO') }}
                 </div>
             </transition>
@@ -121,7 +121,6 @@ export default defineComponent({
 
     .image_container {
         @include inline-flex(center, center);
-
         flex-basis: 50%;
         height: 40%;
         border: 1px solid $color-text;
@@ -137,6 +136,7 @@ export default defineComponent({
             @include flex(center, center);
             max-width: 100%;
             max-height: 100%;
+            object-fit: contain;
         }
     }
 

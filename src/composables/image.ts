@@ -24,5 +24,5 @@ export default function useImageUpload() {
 }
 
 export function useGetImageUrl(imageName: string) {
-    return new URL(`../assets/images/${imageName}.png`, import.meta.url).href;
+    return new URL(`../assets/images/${imageName}.webp`, import.meta.url).href;
 }

@@ -14,6 +14,7 @@
                             v-if="user.image"
                             :src="user.image"
                             :key="user.image"
+                            :alt="user.image"
                             class="image"
                             @click="clickImageRef(user.id)"
                         />
@@ -175,7 +176,7 @@ export default defineComponent({
 
                 @media (orientation: portrait) {
                     flex-basis: 100%;
-                    height: 25%;
+                    height: 33%;
                 }
 
                 .data_name,
@@ -250,6 +251,7 @@ export default defineComponent({
                 max-width: 100%;
                 max-height: 100%;
                 color: $placeholder-text;
+                object-fit: contain;
 
                 &:hover {
                     color: $color-primary;

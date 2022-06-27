@@ -21,6 +21,7 @@ export default defineComponent({
     right: -16.5%;
     bottom: -40%;
     opacity: 0.8;
+    object-fit: contain;
 
     @media (orientation: portrait) {
         height: 150px;

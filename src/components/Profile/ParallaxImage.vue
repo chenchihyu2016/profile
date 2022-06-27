@@ -20,7 +20,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .image_container {
     @include flex(center, center);
-
     width: 100%;
     height: 80%;
     transform-style: preserve-3d;

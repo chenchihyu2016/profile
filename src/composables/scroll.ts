@@ -8,9 +8,13 @@ export function useScroll() {
     function setScrollTarget(inputTarget: HTMLElement) {
         target = inputTarget;
 
-        target.addEventListener('scroll', () => {
-            scrollTopValue.value = parseInt(target!.scrollTop.toFixed(0));
-        });
+        target.addEventListener(
+            'scroll',
+            () => {
+                scrollTopValue.value = parseInt(target!.scrollTop.toFixed(0));
+            },
+            { passive: true }
+        );
     }
 
     function setScrollTopValue(inputScrollTopValue: number) {
@@ -18,10 +22,4 @@ export function useScroll() {
     }
 
     return { scrollTopValue, setScrollTopValue, setScrollTarget };
-}
-
-export function useGetIndividualScrollTop(element: HTMLElement) {
-    const { offsetTop, offsetHeight } = element;
-
-    return offsetTop - offsetHeight / 4;
 }

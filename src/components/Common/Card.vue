@@ -11,7 +11,11 @@
             transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`
         }"
     >
-        <img class="image" :src="useGetImageUrl(cardInfo.image)" />
+        <img
+            class="image"
+            :src="useGetImageUrl(cardInfo.image)"
+            :alt="$t(cardInfo.titleLocaleKey.toUpperCase())"
+        />
         <figcaption class="text">
             <p class="title">
                 {{ $t(cardInfo.titleLocaleKey.toUpperCase()) }}
@@ -117,10 +121,11 @@ export default defineComponent({
     }
 
     .image {
-        max-height: 100%;
-        max-width: 100%;
+        object-fit: contain;
         opacity: 0.8;
         pointer-events: none;
+        max-width: 100%;
+        max-height: 100%;
     }
 
     .text {

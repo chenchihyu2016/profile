@@ -7,7 +7,11 @@
                     target="_blank"
                     rel="noreferrer noopener"
                 >
-                    <img v-src="useGetImageUrl('Self')" class="image" />
+                    <img
+                        v-src="useGetImageUrl('Self')"
+                        class="image"
+                        alt="self_image"
+                    />
                 </a>
             </div>
         </div>
@@ -59,12 +63,12 @@ export default defineComponent({
         }
 
         .image_container {
-            width: 100%;
-            height: 100%;
             position: relative;
             border: 4px solid $color-black;
             border-radius: 50%;
             background: $color-white;
+            width: 100%;
+            height: 100%;
 
             &::before {
                 content: '';

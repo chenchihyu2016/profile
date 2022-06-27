@@ -25,10 +25,10 @@ import ParallaxImage from '@/components/Profile/ParallaxImage.vue';
 import Experience from '@/components/Profile/Experience.vue';
 import LandingPage from '@/components/Profile/LandingPage.vue';
 import ExternalLink from '@/components/Profile/ExternalLink.vue';
+import Others from '@/components/Profile/Others.vue';
 import { useTouch } from '@/composables/touch';
 import { useScroll } from '@/composables/scroll';
 import { useStore } from '@/store';
-import Others from '@/components/Profile/Others.vue';
 
 export default defineComponent({
     components: {
@@ -81,7 +81,7 @@ export default defineComponent({
 
             if (savedScrollTopValue) {
                 portfolioContainerRef.value.scroll({
-                    top: scrollTopValue.value,
+                    top: savedScrollTopValue,
                     behavior: 'smooth'
                 });
             }

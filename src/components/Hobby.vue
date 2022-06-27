@@ -8,13 +8,13 @@
         ></div>
         <img
             :src="useGetImageUrl('fitnessBefore')"
-            :alt="'before'"
+            alt="before"
             class="image"
             @load.stop="assignTransparentLayerWidth"
         />
         <img
             :src="useGetImageUrl('fitnessAfter')"
-            :alt="'after'"
+            alt="after"
             class="image"
             :style="{
                 'clip-path': `polygon(${upperImagePercentage}% 0%, 100% 0%, 100% 100%, ${upperImagePercentage}% 100%)`
@@ -124,9 +124,7 @@ export default defineComponent({
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
-        &:first-child {
-        }
+        object-fit: contain;
 
         &:nth-child(2) {
             border-radius: 0 5px 5px 0;

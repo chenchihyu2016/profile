@@ -1,5 +1,5 @@
 <template>
-    <ul
+    <aside
         :class="[
             'sidebar',
             isSidebarShow ? 'open' : '',
@@ -8,8 +8,10 @@
         @touchstart.passive="touchstartHandle"
         @touchend="touchendHandle"
     >
-        <Menu v-for="item in menus" :key="item.title" :item="item" />
-    </ul>
+        <ul>
+            <Menu v-for="item in menus" :key="item.title" :item="item" />
+        </ul>
+    </aside>
 </template>
 
 <script lang="ts">
