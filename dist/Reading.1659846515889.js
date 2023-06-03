@@ -1,0 +1,1 @@
+import{b as t}from"./scroll.1659846515889.js";import{_ as a,d as o,o as i,c as r}from"./index.1659846515889.js";const s=o({setup(){return{useGetImageUrl:t}}}),c=["src"];function n(e,p,_,d,m,l){return i(),r("img",{class:"image_perspective",src:e.useGetImageUrl("AtomicHabits")},null,8,c)}var f=a(s,[["render",n],["__scopeId","data-v-7b671dca"]]);export{f as default};

@@ -111,7 +111,7 @@ export default defineComponent({
     perspective: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     position: relative;
     scroll-behavior: smooth;
 

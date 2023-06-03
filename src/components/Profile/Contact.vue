@@ -44,6 +44,7 @@ export default defineComponent({
     height: 300px;
     width: 100%;
     background: $color-background;
+    scroll-margin-top: 3rem;
 
     @media (orientation: portrait) {
         height: 160px;

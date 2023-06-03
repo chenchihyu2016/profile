@@ -37,9 +37,7 @@
                                     @{{ $t(content.companyLocaleKey) }}
                                 </button>
                             </p>
-                            <p class="content_detail">{{
-                                $t(content.descriptionLocaleKey)
-                            }}</p>
+                            <p class="content_detail" v-html="$t(content.descriptionLocaleKey)"></p>
                             <p class="content_detail">
                                 <div
                                     v-for="(
@@ -66,9 +64,9 @@ import contentJSON from '@/assets/json/content.json';
 export default defineComponent({
     setup() {
         const experienceContainerRef = ref();
-        const tabs = ['ENGINEER', 'TESTER', 'TUTOR'];
-        const currentTab = ref('ENGINEER');
-        const { state, dispatch } = useStore();
+        const tabs = ['FRONTEND_DEVELOPER','ENGINEER', 'TESTER', 'TUTOR'];
+        const currentTab = ref('FRONTEND_DEVELOPER');
+        const { state } = useStore();
         const isMobile = computed(() => state.isMobile);
         const content = contentJSON;
         const currentContent = computed(
@@ -107,6 +105,7 @@ export default defineComponent({
     @include block_margin_bottom();
     flex-direction: column;
     width: 100%;
+    scroll-margin-top: 3rem;
 
     .tabs_container {
         @include flex(center, flex-start);
@@ -183,7 +182,7 @@ export default defineComponent({
 
                     .content_tags {
                         
-                        margin-right: 8px;
+                        margin: 0 0.5rem 0.5rem 0;
                         background: $color-gray;
                         padding: 0px 8px;
                         color: $color-background;

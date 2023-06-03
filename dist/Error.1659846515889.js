@@ -1,0 +1,1 @@
+import{_ as t,d as r,c as a,t as o,o as n}from"./index.1659846515889.js";const i=r({setup(){return{}}}),s={class:"error_page_container"};function _(e,c,p,d,f,l){return n(),a("main",s,o(e.$t("PAGE_NOT_FOUND")),1)}var m=t(i,[["render",_],["__scopeId","data-v-7bb340d4"]]);export{m as default};

@@ -22,6 +22,7 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     text-align: justify;
+    scroll-margin-top: 3rem;
 
     .greeting {
         display: block;

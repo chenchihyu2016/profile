@@ -1,4 +1,22 @@
 {
+    "FRONTEND_DEVELOPER": [
+        {
+            "date": "2022-08 ~ PRESENT",
+            "titleLocaleKey": "FRONTEND_ENGINEER",
+            "descriptionLocaleKey": "FRONTEND_DEVELOPER_FIRST_DESCRIPTION",
+            "companyLocaleKey": "ESSOFT",
+            "tags": [
+                "VUE 3",
+                "SEMANTIC HTML",
+                "SASS",
+                "TYPESCRIPT",
+                "DEVEXTREME VUE",
+                "VUESTIC",
+                "TMS AURELIUS ENDPOINTS"
+            ],
+            "companyURL": "http://www.yesee.com.tw/"
+        }
+    ],
     "ENGINEER": [
         {
             "date": "2022-01 ~ 2022-05",

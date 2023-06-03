@@ -1,11 +1,11 @@
 <template>
     <transition name="header" mode="out-in">
         <header v-if="isNavShow">
-            <button class="close_icon" @click="toggleSidebar">
+            <!-- <button class="close_icon" @click="toggleSidebar">
                 <font-awesome-icon
                     :icon="['fas', isSidebarShow ? 'xmark' : 'bars']"
                 />
-            </button>
+            </button> -->
             <div class="options_container">
                 <template v-for="tab in tabs">
                     <a
@@ -72,7 +72,7 @@ export default defineComponent({
 
 <style lang="scss">
 header {
-    @include flex(center, space-between);
+    @include flex(center, flex-end);
     position: fixed;
     top: 0;
     left: 0;
@@ -111,6 +111,7 @@ header {
             cursor: pointer;
             border: 1px solid $color-white;
             padding: 6px;
+            margin-left: 0.5rem;
 
             @media (orientation: portrait) {
                 margin-right: 0;
@@ -129,9 +130,10 @@ header {
             @include underline_animation();
             height: 50%;
             color: $color-white;
+            margin: 0 8px;
 
-            &:not(:last-child) {
-                margin: 0 8px;
+            &:last-child {
+                margin-right: 16px;
             }
         }
     }

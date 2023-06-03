@@ -35,13 +35,13 @@ export default defineComponent({
     @include block_margin_bottom();
     @include flex(flex-start, flex-start);
     width: 100%;
+    scroll-margin-top: 3rem;
 
     .external_link {
         @include inline-flex(center, center);
         align-content: flex-start;
         color: $color-text-bright;
         border: 1px solid $color-primary;
-
         cursor: pointer;
         flex-basis: 49%;
         transition: 300ms all ease;

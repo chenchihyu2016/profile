@@ -10,11 +10,19 @@
                 <div :class="loaderClass" />
             </div>
         </div>
+        <div class="container">
+            <div
+                v-for="num in 3"
+                :key="num"
+                class="ball"
+                :style="{ transform: styleFunc(num) }"
+            ></div>
+        </div>
     </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
     setup() {
@@ -26,11 +34,35 @@ export default defineComponent({
             'cross_loader'
         ];
 
-        return { loaderClasses };
+        function styleFunc(num: Number) {
+            return `translateX(30px) translateY(-50%)`;
+        }
+
+        return { loaderClasses, styleFunc };
     }
 });
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/components/loading';
+
+.container {
+    position: relative;
+    width: 200px;
+    aspect-ratio: 16/9;
+    border: 1px solid $color-white;
+    left: 50%;
+    overflow: hidden;
+
+    .ball {
+        position: absolute;
+        background: $color-white;
+        border-radius: 50%;
+        width: 20px;
+        aspect-ratio: 1/1;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: moving 5000ms infinite;
+    }
+}
 </style>

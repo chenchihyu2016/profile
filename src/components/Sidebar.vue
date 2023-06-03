@@ -77,7 +77,7 @@ export default defineComponent({
     }
 }
 .open {
-    margin-left: 0;
+    margin-left: -30px;
 }
 .toTop {
     top: 0;

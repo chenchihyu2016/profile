@@ -97,7 +97,6 @@ export default defineComponent({
 
     .description_container {
         @include flex(center, flex-start);
-
         align-content: center;
         height: 40%;
         width: 80%;
@@ -115,6 +114,8 @@ export default defineComponent({
 
         @media (orientation: portrait) {
             width: 100%;
+            height: 60%;
+            margin-top: 60%;
         }
     }
 }
